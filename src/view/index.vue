@@ -34,7 +34,7 @@ export default class Index extends Vue {
 
     // 生命周期
     mounted () {
-        this.init() //
+        this.init() 
     }
 
     // 计算属性
