@@ -1,7 +1,7 @@
 <template>
-    <div class="suiji-sence">
-        <div class="floor1"><svg-icon class="lls" icon-class="shun" :width="3.48" :height="1.21"></svg-icon></div>        
-        <note-show  :option="options" :start="show" slot="note">
+    <div class="center">
+        <div class="floor1"><svg-icon class="lls" icon-class="shun" :width="2.575" :height=".69"></svg-icon></div>        
+        <note-show  :option="options" :start="run" slot="note">
             <note-item>好的时间管理，是走向巅峰的第一步</note-item>
         </note-show>
         <div data-swiper-parallax-x="300" class="floorPic">
@@ -17,14 +17,18 @@ export default {
 }
 </script>
 <style scoped>
-    
+    .floor1{
+        margin-top:0.4rem;
+        margin-left:0.3rem;   
+    }
     .floorPic{
         height:6.5rem;width:6.81rem;
         margin:1.2rem auto 0rem;
         position: relative;
         overflow: hidden;
     }
-    .shun{      
+    .shun{
+        width:100%;height:100%;
         position: absolute;
         z-index: 0;
     }

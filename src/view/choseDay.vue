@@ -1,7 +1,8 @@
-<template>  
+<template>
+    <div class="scene">
         <div class="floor">
             <p>date</p>
-            <router-link  v-for="(item,i) of weekList" :key="i" :to="{path:'/weekSummary/index.html',query:{select:i}}">
+            <router-link  v-for="(item,i) of items" :key="i" :to="{path:'/',params:{year:item.year,month:item.month,startDate:item.startDate,endDate:item.endDate}}">
                 <div class="weekbar" >
                     <span class="lefttime">{{item.year}}年{{item.month}}月</span>
                     <span class="righttime">
@@ -15,14 +16,44 @@
                 </div>
             </router-link>
         </div>
+    </div>
 </template>
 <script>
 import myMixins from './../components/scene/common';
 import {getWeekTypeList} from './url';
+axios.default.withCredentials=true;
 export default {
-    mixins:[ myMixins],    
-    props:{
-        weekList:Array
+    mixins:[ myMixins],
+    data(){
+        return {
+            // titleDate:[],
+            items:[]
+        }
+    },
+    methods:{
+
+    },
+    created(){ 
+        this.axios.get(getWeekTypeList).then(res=>{
+            let list=res.data.content.data;
+            for(var val of list){
+               var start=new Date();
+               start.setTime(val.startDate);
+               var startMonth=start.getMonth()+1;
+               var startDay=start.getDate();
+               var startTime=(startMonth<10?'0'+startMonth:startMonth)+'.'+(startDay<10?'0'+startDay:startDay)
+               val.startDate=startTime;
+               
+               var end=new Date();
+               end.setTime(val.endDate);
+               var endMonth=end.getMonth()+1;
+               var endDay=end.getDate();
+               var endTime=(endMonth<10?'0'+endMonth:endMonth)+'.'+(endDay<10?'0'+endDay:endDay)
+               val.endDate=endTime;
+
+               this.items.unshift(val);
+            }
+        });
     }
 }
 </script>
@@ -52,7 +83,9 @@ export default {
         font-size:0.4rem;
         border: 0.05rem solid rgba(0,37,255,1);
         border-radius: 0.2rem;
-        margin-top:.1rem;
+    }
+    .weekbar~.weekbar{
+        margin-top:0.1rem;
     }
     .floor .weekbar .righttime{
         display: flex;

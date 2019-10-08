@@ -11,13 +11,12 @@ const choseday = () => import('./view/choseDay.vue')
 Vue.use(VueRouter)
 
 const routes = [
-    { path: '/weekSummary/index.html', component: Index }, 
     { path: '/', component: Index }, 
     { path: '/test', component: test },   
     { path:'/choseday',component:choseday }
 ]
 const router = new VueRouter({
-    mode:'hash',
+    mode:carefree?'hash':'history',
     routes
 })
 

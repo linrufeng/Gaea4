@@ -8,7 +8,6 @@
     height:torem($height);   
     background: url('./../img/css_sprites.png')  no-repeat torem($left) torem($top);
     background-size:torem(810px);
-    font-size: 12px;
 }
 .bg-bamianlinglong{            
     @include spImg( 770px, 254px, -20px, -1721px);

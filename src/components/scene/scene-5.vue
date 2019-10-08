@@ -3,14 +3,14 @@
     <div class="scene">       
         <div class="center">
               <note-show  :option="options" :start="run" slot="note">
-                <note-item v-show="content&&content.queqinNum">
-                    考勤异常<span class="num">{{content&&content.queqinNum}}</span>条 
-                </note-item>
-                <note-item v-show="content&&content.agencyInfoCount">
-                    待审批流程<span class="num">{{ content&&content.agencyInfoCount}}</span>条 
+                <note-item>
+                    考勤异常<span class="num">3</span>条 
                 </note-item>
                 <note-item>
-                   未完成的事项要尽快处理哦。
+                    待审批流程<span class="num">9</span>条 
+                </note-item>
+                <note-item>
+                   未完成的事项要尽快处理哦
                 </note-item>
             </note-show> 
             <div data-swiper-parallax-x="-300" class="floorPic">
@@ -20,7 +20,7 @@
                     <div class="picGroup3 animated flipInX1" v-show='run'></div>
                     <div class="picGroup4 animated flipInX1" v-show='run'></div>
                 </div>
-                <img  class="picSingle" src="./../../asset/svg/scene-5.svg" alt="">             
+                <div class="picSingle"></div>
             </div>
         </div>
       
@@ -30,7 +30,7 @@
 <script>
 import myMixins from './common';
 export default {  
-   mixins:[myMixins]
+    mixins:[myMixins]
 } 
 </script>
 <style scoped>   
@@ -60,7 +60,9 @@ export default {
         animation-delay: 2s;
     }
     .picSingle{
-        height:6rem;width:6.8rem;      
+        height:6rem;width:6.8rem;
+        background:url(../../asset/img/5.png) no-repeat;
+        background-size:100% 100%;
         margin-top:-1.5rem;
         z-index: 2;
     }

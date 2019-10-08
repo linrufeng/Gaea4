@@ -3,25 +3,23 @@
     <div class="scene">
         <div class="center">
          <note-show  :option="options" :start="run" slot="note">
-            <note-item v-show="content.totalCommunicate!=0">
+            <note-item>
                 本周沟通<span class="num">{{content.totalCommunicate}}</span>人 
             </note-item>
-            <note-item v-show="content.totalCommunicate!=0">
+            <note-item>
             与<span>{{content.nameOfMostCommunication}}</span>沟通次数最多本周给他发送 <span class="num">{{content.numberOfMostCommunication}}</span>条信息
             </note-item>
-            <note-item v-show="content.totalCommunicate!=0">
-               最晚回复消息<span class="num">{{latestDeliveryMsgTime}}</span> 
+            <note-item>
+               最晚回复消息<span class="num">{{content.latestDeliveryMsgTime}}</span> 
             </note-item>
-            <note-item v-show="content.totalCommunicate==0">
+            <!-- <note-item>
                此时不撩，更等何时
-            </note-item>
+            </note-item> -->
         </note-show>
         <div data-swiper-parallax-x="300" class="floorPic">
-            <!-- <img src="../../asset/svg/clock.svg" class="picClock"> -->
-             <svg-icon class="picClock" icon-class="clock" :width="1" :height="1"></svg-icon>
+            <img src="../../asset/svg/clock.svg" class="picClock">
             <img src="../../asset/img/qipao.png" class="picQipao1 animated flipInX1" v-show='run'>
             <img src="../../asset/img/qipao.png" class="picQipao2 animated flipInX1" v-show='run'>
-            <img src="../../asset/svg/sencen-2.svg"  class ="bg-scene" alt="">
         </div>
         </div>        
     </div>
@@ -29,26 +27,19 @@
 </template>
 <script>
 import myMixins from './common';
-export default {   
-    mixins:[myMixins],
-    computed:{
-        latestDeliveryMsgTime(){
-            let latestDeliveryMsgTime = this.content.latestDeliveryMsgTime;
-            return latestDeliveryMsgTime&& latestDeliveryMsgTime.split('.')[0]
-        }
-    }
+export default {
+   
+    mixins:[myMixins]
 }
 
 </script>
-<style scoped lang="scss">
+<style scoped>
     .floorPic{
-        height:5.5rem;width:6.8rem;      
+        height:5.5rem;width:6.8rem;
+        background:url(../../asset/img/2.png) no-repeat;
         background-size:100% 100%;
         margin:1.8rem auto 0rem;
         position: relative;
-        .bg-scene{
-            width: 100%;
-        }
     }
     .picClock{
         height:1rem;width:1rem;

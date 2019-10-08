@@ -4,13 +4,13 @@
         <div class="center">     
             <note-show  :option="options" :start="run" slot="note">
                 <note-item>
-                    最晚下班时间<span class="num">{{lastTime}}</span>
+                    最晚下班时间<span class="num">{{content.latestDakaTime}}</span>
                 </note-item>
                 <note-item>
                     超过了<span class="num">60%</span>的JDer
                 </note-item>
                 <note-item>
-                   {{showMSg}}
+                    加班还是要有的，万一加薪了呢
                 </note-item>
             </note-show>
             <div data-swiper-parallax-x="-300" class="floorPic">                
@@ -24,39 +24,7 @@
 <script>
 import myMixins from './common';
 export default {    
-    mixins:[myMixins],
-    computed:{
-        showMSg:function(){
-            let msg = '';
-            let time = this.content.latestDakaTime;
-            console.log(time)
-            if(!time){
-                return
-            }
-            time = Number (time.split('.')[0].split(':')[0])
-            if( typeof time === 'number'){
-                let Hours = time;
-                 if(Hours<19){
-                    msg = "作息规律，生活健康";
-                }else if(Hours>19&&Hours<=21){
-                    msg = "工作那么多，我得加班干！";
-                }else if(Hours>21&&Hours<=23){
-                    msg = "加班还是要有的，万一加薪了呢";
-                }else if(Hours>23 || Hours<6){
-                    msg="熬夜，是为了自由"
-                }
-            }            
-            return msg
-        },
-        lastTime(){
-            let time = this.content.latestDakaTime;
-            console.log(time)
-            if(!time){
-                return
-            }
-            return time.split('.')[0]
-        }
-    }
+    mixins:[myMixins]
 }
 </script>
 <style lang="scss" scoped>     

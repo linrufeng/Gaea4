@@ -1,8 +1,7 @@
 <template>
-    <div class="suiji-sence">
-        <!-- <div class="floor1 bg-riliwanji"></div> -->
-        <div class="floor1"><svg-icon class="lls" icon-class="riliwanji" :width="4" :height="1.85"></svg-icon></div>
-        <note-show  :option="options" :start="show" slot="note">
+    <div class="center">
+        <div class="floor1 bg-riliwanji"></div>
+        <note-show  :option="options" :start="run" slot="note">
             <note-item>有多大的担当就有多大的事业</note-item>
         </note-show> 
         <div data-swiper-parallax-x="300" class="floorPic">
@@ -17,13 +16,18 @@ export default {
     mixins:[myMixins]
 }
 </script>
-<style scoped>   
+<style scoped>
+    .floor1{
+        margin-top:0.4rem;
+        margin-left:0.3rem;   
+    }
     .floorPic{
         height:7.4rem;width:6.81rem;
         margin:0.4rem auto 0rem;
         position: relative;
     }
-    .riliwanji{        
+    .riliwanji{
+        width:100%;height:100%;
         position: absolute;
         z-index: 1;
     }
