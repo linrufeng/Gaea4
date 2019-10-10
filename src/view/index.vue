@@ -96,22 +96,21 @@ export default {
     height: 68px;
     background-size: 100% 100%;
 }
-.jdc-logo{
+.jdc-logo {
     text-align: center;
-    margin-top:4rem;
-    s{
+    margin-top: 4rem;
+    s {
         display: inline-block;
-        height:0.24rem;
-        width:1.15rem;
-        background:url('../asset/img/logo.png') 0 0 no-repeat;
-        background-size:100% 100%;
-
+        height: 0.24rem;
+        width: 1.15rem;
+        background: url("../asset/img/logo.png") 0 0 no-repeat;
+        background-size: 100% 100%;
     }
 }
-.webp .jdc-logo{
-    s{
-        background:url('../asset/img/webp/logo.webp') 0 0 no-repeat;
-        background-size:100% 100%;
+.webp .jdc-logo {
+    s {
+        background: url("../asset/img/webp/logo.webp") 0 0 no-repeat;
+        background-size: 100% 100%;
     }
 }
 </style>
